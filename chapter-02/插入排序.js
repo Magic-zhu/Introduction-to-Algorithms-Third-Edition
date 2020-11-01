@@ -5,8 +5,6 @@ for (var i = 0; i < 1000; i++) {
   array.push(int);
 }
 
-console.log(array)
-
 function InsertionSort(arr) {
   for (let j = 1; j < arr.length-1; j++) {
     let key = arr[j];
