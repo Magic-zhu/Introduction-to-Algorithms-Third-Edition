@@ -5,6 +5,11 @@ for (var i = 0; i < 1000; i++) {
   array.push(int);
 }
 
-function MergeSort(arr){
-    
+
+function Merge(arr, l, m, r) {
+  
+}
+
+function MergeSort(arr) {
+
 }
