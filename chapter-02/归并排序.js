@@ -1,49 +1,42 @@
-var array = [];
-var int = 0;
-for (var i = 0; i < 10; i++) {
-  int = Math.ceil(Math.random() * 10);
-  array.push(int);
+let array = []
+let int = 0
+for (let i = 0; i < 10; i++) {
+  int = Math.ceil(Math.random() * 100)
+  array.push(int)
 }
-console.log(array)
-function Merge(arr, p, q, r) {
-  let left = arr.slice(p, q + 1)
-  let right = arr.slice(q, r)
-  left.push(Number.POSITIVE_INFINITY)
-  right.push(Number.POSITIVE_INFINITY)
-}
-
-function MergeSort(arr) {
-
-}
+console.log('原始数组', array)
 
 function mergeSort(arr) {
-  var len = arr.length;
-  if (len < 2) {
-    return arr;
-  }
-  var middle = Math.floor(len / 2),
-    left = arr.slice(0, middle),
-    right = arr.slice(middle);
-  return merge(mergeSort(left), mergeSort(right));
+  let len = arr.length
+  if (len < 2) return arr
+  let middle = Math.floor(len / 2)
+  let left = arr.slice(0, middle)
+  let right = arr.slice(middle)
+  return merge(mergeSort(left), mergeSort(right))
 }
 
 function merge(left, right) {
-  var result = [];
-  while (left.length && right.length) {
-    if (left[0] <= right[0]) {
-      result.push(left.shift());
+  let result = []
+  let i = 0
+  let j = 0
+  while ((i <= left.length - 1) && (j <= right.length - 1)) {
+    if (left[i] <= right[j]) {
+      result.push(left[i])
+      i = i + 1
     } else {
-      result.push(right.shift());
+      result.push(right[j])
+      j = j + 1
     }
   }
-
-  while (left.length)
-    result.push(left.shift());
-
-  while (right.length)
-    result.push(right.shift());
-
-  console.log(result)
-  return result;
+  while (i <= left.length - 1) {
+    result.push(left[i])
+    i = i + 1
+  }
+  while (j <= right.length - 1) {
+    result.push(right[j])
+    j = j + 1
+  }
+  return result
 }
-console.log(mergeSort(array), '结果')
+
+console.log('排序后数组', mergeSort(array))
