@@ -1,0 +1,25 @@
+{
+  "name": "introductiontoalgorithms_3di",
+  "version": "1.0.0",
+  "description": "算法导论 第三版 中算法的js实现 以及课后习题\r Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest /test/findMaxSubarray"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Magic-zhu/IntroductionToAlgorithms_3di.git"
+  },
+  "keywords": [
+    "algorithms"
+  ],
+  "author": "magic-zhu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Magic-zhu/IntroductionToAlgorithms_3di/issues"
+  },
+  "homepage": "https://github.com/Magic-zhu/IntroductionToAlgorithms_3di#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
