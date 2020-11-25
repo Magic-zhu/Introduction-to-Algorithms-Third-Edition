@@ -6,7 +6,7 @@ Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript
 - [x] 归并排序(MergeSort)
 ## 第4章
 - [x] 最大子数组(findMaxSubarray)
-- [ ] Strassen算法--矩阵乘法(Strassen)
+- [x] Strassen算法--矩阵乘法(Strassen)
 
 ## 第6章
 - [x] 堆排序
