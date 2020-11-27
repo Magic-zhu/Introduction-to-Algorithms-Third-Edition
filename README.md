@@ -1,4 +1,4 @@
-算法导论 第三版 中算法的js实现 以及课后习题<br>
+算法导论 第三版 中涉及到算法的js实现<br>
 Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript)
 
 ## 第2章
@@ -9,8 +9,16 @@ Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript
 - [x] Strassen算法--矩阵乘法(Strassen)
 
 ## 第6章
-- [x] 堆排序
+- [x] 堆排序(HeapSort)
+- [ ] 优先队列
 
+## 第7章
+- [x] 快速排序
+
+## 第8章
+- [ ] 计数排序
+- [ ] 基数排序
+- [ ] 桶排序
 ## 第32章
 - [x] 字符串匹配-朴素算法
 - [x] 字符串匹配-有限自动机
