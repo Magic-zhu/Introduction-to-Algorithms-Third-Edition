@@ -1,4 +1,4 @@
-算法导论 第三版 中涉及到算法的js实现<br>
+《算法导论 第三版》 中涉及到算法的js实现<br>
 Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript)
 
 ## 第2章
@@ -16,8 +16,8 @@ Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript
 - [x] 快速排序
 
 ## 第8章
-- [ ] 计数排序
-- [ ] 基数排序
+- [x] 计数排序
+- [x] 基数排序
 - [ ] 桶排序
 ## 第32章
 - [x] 字符串匹配-朴素算法

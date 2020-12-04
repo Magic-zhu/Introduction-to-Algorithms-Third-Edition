@@ -15,4 +15,4 @@ function CountingSort(arr) {
     })
     return result
 }
-console.log(CountingSort([2, 5, 3, 0, 2, 3, 1, 3]))
+module.exports = CountingSort
