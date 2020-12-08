@@ -10,7 +10,6 @@ function BucketSort(arr) {
     let buckets = new Array(l).fill([]) //建造一个二维数组
     for (let i = 0; i < l; i++) {
         let BucketIndex = parseInt(arr[i].toString()[0])
-        //二维空数组 直接push会有异常现象
         buckets[BucketIndex].length == 0 ? buckets[BucketIndex] = [arr[i]] : buckets[BucketIndex].push(arr[i])
     }
     buckets.forEach(e => {

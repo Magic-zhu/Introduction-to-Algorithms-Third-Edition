@@ -10,7 +10,7 @@ Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript
 
 ## 第6章
 - [x] 堆排序(HeapSort)
-- [ ] 优先队列
+- [x] 优先队列
 
 ## 第7章
 - [x] 快速排序
@@ -18,7 +18,11 @@ Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript
 ## 第8章
 - [x] 计数排序(CountingSort)
 - [x] 基数排序(RadixSort)
-- [ ] 桶排序(BucketSort)
+- [x] 桶排序(BucketSort)
+
+## 第9章
+
+
 ## 第32章
 - [x] 字符串匹配-朴素算法
 - [x] 字符串匹配-有限自动机
