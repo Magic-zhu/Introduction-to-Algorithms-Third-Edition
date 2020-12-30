@@ -1,5 +1,7 @@
-《算法导论 第三版》 中涉及到算法的js实现<br>
-Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript)
+<img src='./cover.jpg' />
+
+《算法导论 第三版》 中涉及到算法的javascript实现<br>
+《Introduction to Algorithms,Third Edition》 Algorithm implementation -- Javascript<br>
 
 ## 第2章
 - [x] 插入排序(InsertionSort)
@@ -22,6 +24,13 @@ Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript
 
 ## 第9章
 
+## 第10章
+
+## 第15章 - 动态规划
+- [] 钢条割据()
+- [] 基数排序()
+
+## 第16章 -
 
 ## 第32章
 - [x] 字符串匹配-朴素算法
