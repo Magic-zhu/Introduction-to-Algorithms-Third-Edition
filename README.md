@@ -1,38 +1,48 @@
 <img src='./cover.jpg' />
 
-《算法导论 第三版》 中涉及到算法的javascript实现<br>
+《算法导论 第三版》 中涉及到算法的 javascript 实现<br>
 《Introduction to Algorithms,Third Edition》 Algorithm implementation -- Javascript<br>
 
-## 第2章
+## 第 2 章
+
 - [x] 插入排序(InsertionSort)
 - [x] 归并排序(MergeSort)
-## 第4章
-- [x] 最大子数组(findMaxSubarray)
-- [x] Strassen算法--矩阵乘法(Strassen)
 
-## 第6章
+## 第 4 章
+
+- [x] 最大子数组(findMaxSubarray)
+- [x] Strassen 算法--矩阵乘法(Strassen)
+
+## 第 6 章
+
 - [x] 堆排序(HeapSort)
 - [x] 优先队列
 
-## 第7章
+## 第 7 章
+
 - [x] 快速排序
 
-## 第8章
+## 第 8 章
+
 - [x] 计数排序(CountingSort)
 - [x] 基数排序(RadixSort)
 - [x] 桶排序(BucketSort)
 
-## 第9章
+## 第 9 章
 
-## 第10章
+## 第 10 章
 
-## 第15章 - 动态规划
-- [] 钢条割据()
-- [] 基数排序()
+## 第 15 章 - 动态规划
 
-## 第16章 -
+- [x] 钢条割据(PrintCutRodSolution)
+- [ ] 矩阵链乘法
+- [ ] 最长公共子序列
+- [ ] 最优二叉搜索树
 
-## 第32章
+## 第 16 章 -
+
+## 第 32 章
+
 - [x] 字符串匹配-朴素算法
 - [x] 字符串匹配-有限自动机
 - [x] 字符串匹配-kmp
