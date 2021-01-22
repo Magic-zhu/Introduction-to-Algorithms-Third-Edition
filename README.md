@@ -16,7 +16,7 @@
 ## 第 6 章
 
 - [x] 堆排序(HeapSort)
-- [x] 优先队列
+- [x] 优先队列(PriorityQueue)
 
 ## 第 7 章
 
@@ -35,8 +35,8 @@
 ## 第 15 章 - 动态规划
 
 - [x] 钢条割据(PrintCutRodSolution)
-- [ ] 矩阵链乘法
-- [x] 最长公共子序列
+- [x] 矩阵链乘法(PrintOptimalParens)
+- [x] 最长公共子序列(PrintLsc)
 - [ ] 最优二叉搜索树
 
 ## 第 16 章 - 贪心算法
