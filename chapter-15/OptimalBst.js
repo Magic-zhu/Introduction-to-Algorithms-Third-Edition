@@ -11,8 +11,8 @@ function newTable(m, n) {
     return arr;
 }
 
-
-function OptimalBst(p, q, n) {
+//生成对照表
+function createTable(p, q, n) {
     let e = newTable(n + 1, n + 1)
     let w = newTable(n + 1, n + 1)
     let root = newTable(n, n)
@@ -34,11 +34,22 @@ function OptimalBst(p, q, n) {
             }
         }
     }
-    console.log(e,root)
     return { e, root }
 }
 
+function OptimalBst(p, q, n) {
+    const { root } = createTable(p, q, n)
+    let tree = []
+    const find = (root, i, j) => {
+        if (i <= j) {
+            let r = root[i][j]
+            tree.push('k' + r)
+            find(root, i, r - 1)
+            find(root, r + 1, j)
+        }
+    }
+    find(root, 1, 5)
+    return tree
+}
 
 module.exports = OptimalBst
-
-OptimalBst(p, q, n)
