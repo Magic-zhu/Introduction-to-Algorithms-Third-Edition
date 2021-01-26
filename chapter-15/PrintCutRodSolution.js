@@ -8,7 +8,7 @@ function ExtendedBottomUpCutRod(pMap, n) {
   r[0] = 0;
   for (let j = 1; j < n + 1; j++) {
     q = -1;
-    for (let i = 1; i < n + 1; i++) {
+    for (let i = 1; i < j + 1; i++) {
       if (q < pMap[i] + r[j - i]) {
         q = pMap[i] + r[j - i];
         s[j] = i;
