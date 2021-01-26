@@ -5,7 +5,7 @@
 
 ## 第 2 章
 
-- ✅ 插入排序(InsertionSort)
+- ✅ 插入排序(InsertionSort) >>> 📒读书笔记
 - ✅ 归并排序(MergeSort)
 
 ## 第 4 章
@@ -33,7 +33,7 @@
 - ✅ 钢条割据(PrintCutRodSolution)
 - ✅ 矩阵链乘法(PrintOptimalParens)
 - ✅ 最长公共子序列(PrintLsc)
-- ⭕️ 最优二叉搜索树
+- ✅ 最优二叉搜索树(OptimalBst)
 
 ## 第 16 章 - 贪心算法
 
