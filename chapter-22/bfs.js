@@ -20,7 +20,6 @@ function bfs(G, s) {
                 searchFloor(node.next)
             }
         }
-
         searchFloor(startNode)
         if (floor.length !== 0) {
             floor.forEach((key) => {
