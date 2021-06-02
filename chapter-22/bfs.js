@@ -1,4 +1,4 @@
-// 有向无环图的广度遍历
+// 从某个点出发的广度遍历
 function bfs(G, s) {
     let SimulationTree = {};
     let didSearchMap = new Map();
