@@ -45,7 +45,9 @@ const G = [node内裤, node裤子, node腰带, node衬衣, node领带, node夹�
 function TopologicalSort(G) {
 
     let didSearchMap = new Map();
-
+    // 最终结果
+    let finalList = [];
+    let count = 0;
     // 从某个点出发的深度遍历
     function dfs(G, s) {
 
@@ -55,52 +57,74 @@ function TopologicalSort(G) {
 
         const startNode = G[getStartNodeIndex(G, s.key)];
         let SimulationTree = {};
-
+        let stack = [];
+        let treeStack = [];
         function findNext(inputNode) {
             let resultNode;
             function nextEdgeNode(node) {
-                console.log('是这里嘛',node)
                 if (node.next === null) {
                     resultNode = null
                 } else if (didSearchMap[node.next.key] === 1) {
                     nextEdgeNode(node.next)
                 } else {
-                    
                     resultNode = node.next
                 }
             }
-            console.log(resultNode)
             nextEdgeNode(inputNode)
             return resultNode
         }
 
+        // 向上查询节点 直到有新的节点或者stack为空
+        function searchBack(tree) {
+            if (stack.length !== 0) {
+                let preNode = stack.pop();
+                let resultNode = findNext(preNode);
+                setFinishTime(preNode);
+                if (resultNode) {
+                    let t = G[getStartNodeIndex(G, resultNode.key)];
+                    stack.push(preNode);
+                    treeStack.push(tree);
+                    search(t, tree);
+                } else {
+                    tree = treeStack.pop();
+                    searchBack(tree);
+                }
+            }
+        }
+
+        function setFinishTime(node) {
+            let nowIndex = finalList.findIndex(item => item.key === node.key);
+            finalList[nowIndex].finishTime = count++;
+        }
+
         function search(startNode, SimulationTree) {
-            let stack = [];
             function searchDeep(node, tree) {
                 tree[node.key] === undefined ? tree[node.key] = new Object({}) : null;
                 didSearchMap[node.key] = 1; //记录已经走过的节点
-                if (node.next === null) { //如果为空返回上一个节点
-                    if (stack.length !== 0) {
-                        let preNode = stack.pop();
-                        let resultNode = findNext(preNode);
-                        if (resultNode) {
-                            let t = G[getStartNodeIndex(G, resultNode.key)]
-                            search(t, tree);
-                        }
+                if (finalList.findIndex(item => item.key === node.key) === -1) {
+                    finalList.push({ findTime: count++, key: node.key })
+                }
+                if (node.next === null) { //如果为空返回上一个节点 这里说明是最后一个节点 发现即结束时间
+                    if (s.key === '衬衣') console.log(node)
+                    let nowIndex = finalList.findIndex(item => item.key === node.key);
+                    if (finalList[nowIndex].finishTime === undefined) {
+                        setFinishTime(node);
                     }
+                    searchBack(tree);
                 } else {
-                    let nextNode = G[getStartNodeIndex(G, node.next.key)]
+                    let nextNode = G[getStartNodeIndex(G, node.next.key)];
                     if (!didSearchMap[nextNode.key]) {
                         stack.push(node); //保存上一个节点
+                        treeStack.push(tree); // 保存树的节点
                         searchDeep(nextNode, tree[node.key]);
                     } else { // 遇到已经经过的节点 返回上一个节点 查找是否有其他路径
-                        if (stack.length !== 0) {
-                            let preNode = stack.pop(); // 找回上一个节点
-                            let resultNode = findNext(preNode); // 去邻接链表中查询对应没有经过的节点
-                            if (resultNode) {
-                                let t = G[getStartNodeIndex(G, resultNode.key)]
-                                search(t, tree);
+                        if (stack.length === 0) {
+                            let nowIndex = finalList.findIndex(item => item.key === node.key);
+                            if (finalList[nowIndex].finishTime === undefined) {
+                                setFinishTime(node);
                             }
+                        } else {
+                            searchBack(tree);
                         }
                     }
                 }
@@ -108,13 +132,16 @@ function TopologicalSort(G) {
             searchDeep(startNode, SimulationTree);
         }
         search(startNode, SimulationTree)
-
         return SimulationTree
     }
-    dfs(G,G[0])
-    // for( let i = 0; i <G.length;i++) {
-    //     console.log(JSON.stringify(dfs(G,G[i])))
-    // }
+
+    // 遍历每一个顶点
+    for (let i = 0; i < G.length; i++) {
+        dfs(G, G[i]); // 深度遍历
+    }
+
+    finalList.sort((a, b) => b.finishTime - a.finishTime);
+    console.log(finalList)
 }
 
 TopologicalSort(G)

@@ -9,6 +9,8 @@ function dfs(G, s) {
     const startNode = G[getStartNodeIndex(G, s)];
     let SimulationTree = {};
     let didSearchMap = new Map();
+    let stack = [];
+    let treeStack = [];
 
     function findNext(inputNode) {
         let resultNode;
@@ -25,34 +27,34 @@ function dfs(G, s) {
         return resultNode
     }
 
+    function searchBack (tree) {
+        if (stack.length !== 0) {
+            let preNode = stack.pop();
+            let resultNode = findNext(preNode);
+            if (resultNode) {
+                let t = G[getStartNodeIndex(G, resultNode.key)]
+                search(t, tree);
+            }else{
+                tree = treeStack.pop();
+                searchBack(tree);
+            }
+        }
+    }
+
     function search(startNode, SimulationTree) {
-        let stack = [];
         function searchDeep(node, tree) {
             tree[node.key] === undefined ? tree[node.key] = new Object({}) : null;
             didSearchMap[node.key] = 1; //记录已经走过的节点
             if (node.next === null) { //如果为空返回上一个节点
-                if (stack.length !== 0) {
-                    let preNode = stack.pop();
-                    let resultNode = findNext(preNode);
-                    if (resultNode) {
-                        let t = G[getStartNodeIndex(G, resultNode.key)]
-                        search(t, tree);
-                    }
-                }
+                searchBack(tree);
             } else {
                 let nextNode = G[getStartNodeIndex(G, node.next.key)]
                 if (!didSearchMap[nextNode.key]) {
                     stack.push(node); //保存上一个节点
+                    treeStack.push(tree);
                     searchDeep(nextNode, tree[node.key]);
                 } else { // 遇到已经经过的节点 返回上一个节点 查找是否有其他路径
-                    if (stack.length !== 0) {
-                        let preNode = stack.pop(); // 找回上一个节点
-                        let resultNode = findNext(preNode); // 去邻接链表中查询对应没有经过的节点
-                        if (resultNode) {
-                            let t = G[getStartNodeIndex(G, resultNode.key)]
-                            search(t, tree);
-                        }
-                    }
+                    searchBack(tree);
                 }
             }
         }
