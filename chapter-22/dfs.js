@@ -27,7 +27,7 @@ function dfs(G, s) {
         return resultNode
     }
 
-    function searchBack (tree) {
+    function searchBack(tree) {
         if (stack.length !== 0) {
             let preNode = stack.pop();
             let resultNode = findNext(preNode);
@@ -36,7 +36,7 @@ function dfs(G, s) {
                 stack.push(preNode);
                 treeStack.push(tree);
                 search(t, tree);
-            }else{
+            } else {
                 tree = treeStack.pop();
                 searchBack(tree);
             }
@@ -56,14 +56,14 @@ function dfs(G, s) {
                     treeStack.push(tree);
                     searchDeep(nextNode, tree[node.key]);
                 } else { // 遇到已经经过的节点 返回上一个节点 查找是否有其他路径
-                    if(stack.length===0){
+                    if (stack.length === 0) {
                         // 这里是用来查找是否有其他路径
                         if (findNext(node) !== null) {
                             stack.push(node);
                             treeStack.push(tree);
                             search(findNext(node), tree[node.key]);
                         }
-                    }else{
+                    } else {
                         searchBack(tree);
                     }
                 }
