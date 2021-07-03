@@ -4,7 +4,7 @@
   "description": "算法导论 第三版 中算法的js实现 以及课后习题\r Introduction to Algorithms,Third Edition (Algorithm implementation -- Javascript)",
   "main": "index.js",
   "scripts": {
-    "test": "jest /test/"
+    "test": "jest /test/dfs.test.js"
   },
   "repository": {
     "type": "git",

@@ -1,46 +1,3 @@
-function Node(key) {
-    this.key = key || null
-    this.pre = null
-    this.next = null
-}
-
-let node内裤 = new Node('内裤');
-let node内裤_裤子 = new Node('裤子');
-let node内裤_裤子_鞋 = new Node('鞋');
-node内裤.next = node内裤_裤子;
-node内裤_裤子.next = node内裤_裤子_鞋;
-
-let node裤子 = new Node('裤子');
-let node裤子_腰带 = new Node('腰带');
-let node裤子_腰带_鞋 = new Node('鞋');
-node裤子.next = node裤子_腰带;
-node裤子_腰带.next = node裤子_腰带_鞋;
-
-let node腰带 = new Node('腰带');
-let node腰带_夹克 = new Node('夹克');
-node腰带.next = node腰带_夹克;
-
-let node衬衣 = new Node('衬衣');
-let node衬衣_腰带 = new Node('腰带');
-let node衬衣_腰带_领带 = new Node('领带');
-node衬衣.next = node衬衣_腰带;
-node衬衣_腰带.next = node衬衣_腰带_领带;
-
-let node领带 = new Node('领带');
-let node领带_夹克 = new Node('夹克');
-node领带.next = node领带_夹克;
-
-let node夹克 = new Node('夹克');
-
-let node袜子 = new Node('袜子');
-let node袜子_鞋 = new Node('鞋');
-node袜子.next = node袜子_鞋;
-
-let node鞋 = new Node('鞋');
-
-let node手表 = new Node('手表');
-
-const G = [node内裤, node裤子, node腰带, node衬衣, node领带, node夹克, node袜子, node鞋, node手表]
 
 function TopologicalSort(G) {
 
@@ -105,7 +62,6 @@ function TopologicalSort(G) {
                     finalList.push({ findTime: count++, key: node.key })
                 }
                 if (node.next === null) { //如果为空返回上一个节点 这里说明是最后一个节点 发现即结束时间
-                    if (s.key === '衬衣') console.log(node)
                     let nowIndex = finalList.findIndex(item => item.key === node.key);
                     if (finalList[nowIndex].finishTime === undefined) {
                         setFinishTime(node);
@@ -122,6 +78,12 @@ function TopologicalSort(G) {
                             let nowIndex = finalList.findIndex(item => item.key === node.key);
                             if (finalList[nowIndex].finishTime === undefined) {
                                 setFinishTime(node);
+                            }
+                            // 这里是用来查找是否有其他路径
+                            if (findNext(node) !== null) {
+                                stack.push(node);
+                                treeStack.push(tree);
+                                search(findNext(node), tree[node.key]);
                             }
                         } else {
                             searchBack(tree);
@@ -140,8 +102,8 @@ function TopologicalSort(G) {
         dfs(G, G[i]); // 深度遍历
     }
 
-    finalList.sort((a, b) => b.finishTime - a.finishTime);
-    console.log(finalList)
+    finalList = finalList.sort((a, b) => b.finishTime - a.finishTime).map(item=>item.key);
+    return finalList
 }
 
-TopologicalSort(G)
+module.exports = TopologicalSort

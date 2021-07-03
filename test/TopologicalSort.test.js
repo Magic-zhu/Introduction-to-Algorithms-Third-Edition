@@ -39,3 +39,16 @@ node袜子.next = node袜子_鞋;
 let node鞋 = new Node('鞋');
 
 let node手表 = new Node('手表');
+
+const G = [node内裤, node裤子, node腰带, node衬衣, node领带, node夹克, node袜子, node鞋, node手表]
+
+const TopologicalSort = require('../chapter-22/TopologicalSort')
+test('拓扑排序', () => {
+    expect(TopologicalSort(G)).toEqual([
+        '手表', '袜子',
+        '衬衣', '领带',
+        '内裤', '裤子',
+        '鞋', '腰带',
+        '夹克'
+    ])
+})
